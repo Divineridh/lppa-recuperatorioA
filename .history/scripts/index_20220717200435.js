@@ -15,7 +15,6 @@ window.onload = function() {
             }
         }
     }
-    hideLabels();
 }
 
 function getElements() {
@@ -65,9 +64,5 @@ function formReset() {
 }
 
 function hideLabels() {
-    for (let i = 0; i < inputList.length; i++) {
-        inputList[i].onfocus = function() {
-            inputList.labels[1].classList.toggle("hidden", true);
-        }
-    }
+    
 }

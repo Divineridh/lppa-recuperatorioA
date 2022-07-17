@@ -1,24 +1,8 @@
 window.onload = function() {
-    getElements();
-    submit.onclick = function(e) {
-        e.preventDefault();
-        if (fieldValidations() == true) {
-            modal.classList.add("modal-show");
-            modalClose.onclick = function() {
-                resetForm();
-                modal.classList.remove("modal-show");
-            }
-            window.onclick = function(e) {
-                if (e.target == modal) {
-                    modal.classList.remove("modal-show");
-                }
-            }
-        }
-    }
-    hideLabels();
+
 }
 
-function getElements() {
+function GetElements() {
     nombre = document.getElementById("textNombre");
     apellido = document.getElementById("textApellido");
     email = document.getElementById("textEmail");
@@ -27,17 +11,16 @@ function getElements() {
     passRepetir = document.getElementById("textPassRepetir");
     submit = document.getElementById("form-button");
     modal = document.getElementById("sectionModal");
-    modalClose = document.getElementById("modal-button-close");
-    inputList = document.getElementById("input[type=text]");
+
 }
 
-function fieldValidations() {
+function FieldValidations() {
     validate = true;
-    if (nombre.value.length <= 2 || isNaN(nombre.value)) {
+    if (nombre.value.length < 3 || isNaN(nombre.value)) {
         nombre.labels[1].classList.toggle("hidden", false);
         validate = false;
     }
-    if (apellido.value.length <= 2 || isNaN(apellido.value)) {
+    if (apellido.value.length < 3 || isNaN(apellido.value)) {
         apellido.labels[1].classList.toggle("hidden", false);
         validate = false;
     }
@@ -58,16 +41,4 @@ function fieldValidations() {
         validate = false;
     }
     return validate;
-}
-
-function formReset() {
-    document.getElementById("main-form").reset();
-}
-
-function hideLabels() {
-    for (let i = 0; i < inputList.length; i++) {
-        inputList[i].onfocus = function() {
-            inputList.labels[1].classList.toggle("hidden", true);
-        }
-    }
 }

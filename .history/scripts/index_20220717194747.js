@@ -3,19 +3,9 @@ window.onload = function() {
     submit.onclick = function(e) {
         e.preventDefault();
         if (fieldValidations() == true) {
-            modal.classList.add("modal-show");
-            modalClose.onclick = function() {
-                resetForm();
-                modal.classList.remove("modal-show");
-            }
-            window.onclick = function(e) {
-                if (e.target == modal) {
-                    modal.classList.remove("modal-show");
-                }
-            }
+
         }
     }
-    hideLabels();
 }
 
 function getElements() {
@@ -27,8 +17,7 @@ function getElements() {
     passRepetir = document.getElementById("textPassRepetir");
     submit = document.getElementById("form-button");
     modal = document.getElementById("sectionModal");
-    modalClose = document.getElementById("modal-button-close");
-    inputList = document.getElementById("input[type=text]");
+    modalClose = document.getElementById("modal-button-close")
 }
 
 function fieldValidations() {
@@ -58,16 +47,4 @@ function fieldValidations() {
         validate = false;
     }
     return validate;
-}
-
-function formReset() {
-    document.getElementById("main-form").reset();
-}
-
-function hideLabels() {
-    for (let i = 0; i < inputList.length; i++) {
-        inputList[i].onfocus = function() {
-            inputList.labels[1].classList.toggle("hidden", true);
-        }
-    }
 }

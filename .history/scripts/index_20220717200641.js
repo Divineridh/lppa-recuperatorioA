@@ -15,7 +15,6 @@ window.onload = function() {
             }
         }
     }
-    hideLabels();
 }
 
 function getElements() {

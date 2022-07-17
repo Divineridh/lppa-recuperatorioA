@@ -15,7 +15,6 @@ window.onload = function() {
             }
         }
     }
-    hideLabels();
 }
 
 function getElements() {
@@ -28,7 +27,7 @@ function getElements() {
     submit = document.getElementById("form-button");
     modal = document.getElementById("sectionModal");
     modalClose = document.getElementById("modal-button-close");
-    inputList = document.getElementById("input[type=text]");
+    inputList = document.getElementById
 }
 
 function fieldValidations() {
@@ -65,9 +64,5 @@ function formReset() {
 }
 
 function hideLabels() {
-    for (let i = 0; i < inputList.length; i++) {
-        inputList[i].onfocus = function() {
-            inputList.labels[1].classList.toggle("hidden", true);
-        }
-    }
+    
 }

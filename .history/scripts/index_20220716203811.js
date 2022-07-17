@@ -10,7 +10,6 @@ function GetElements() {
     pass = document.getElementById("textPass");
     passRepetir = document.getElementById("textPassRepetir");
     submit = document.getElementById("form-button");
-    modal = document.getElementById("sectionModal")
 }
 
 function FieldValidations() {

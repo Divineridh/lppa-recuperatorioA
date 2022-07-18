@@ -38,7 +38,7 @@ body {
 	grid-template-columns: repeat(var(--items), 1fr);
 	position: fixed;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .navbar > a {
@@ -83,4 +83,3 @@ body {
     width: 100%;
     max-width: 800px;
 }
-

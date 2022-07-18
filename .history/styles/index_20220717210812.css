@@ -34,11 +34,9 @@ body {
 	box-shadow: 0 0 32px #00000033;
 	font-size: 2em;
 	font-weight: 300;
-    display: flex;
+    display: grid;
 	grid-template-columns: repeat(var(--items), 1fr);
 	position: fixed;
-    width: 100%;
-    justify-content: space-evenly;
 }
 
 .navbar > a {
@@ -83,4 +81,3 @@ body {
     width: 100%;
     max-width: 800px;
 }
-

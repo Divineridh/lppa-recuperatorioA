@@ -38,7 +38,6 @@ body {
 	grid-template-columns: repeat(var(--items), 1fr);
 	position: fixed;
     width: 100%;
-    justify-content: space-evenly;
 }
 
 .navbar > a {
@@ -47,6 +46,7 @@ body {
 	text-align: center;
 	text-decoration: none;
 	transition: all .5s;
+    justify-content:end;
 }
 
 .navbar > a:hover {
@@ -83,4 +83,3 @@ body {
     width: 100%;
     max-width: 800px;
 }
-

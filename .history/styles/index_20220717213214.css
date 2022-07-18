@@ -50,7 +50,7 @@ body {
 }
 
 .navbar > a:hover {
-	background: #ffffff0c;
+	background: #ffffff06;
 	color: #aaddff;
 }
 
@@ -81,7 +81,7 @@ body {
     margin-top: 80px;
     padding: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
 }
 
 .main-form {
@@ -89,35 +89,10 @@ body {
     justify-content: center;
 }
 
-.form-title {
-    font-size: 1.8em;
-	font-weight: 300;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .form-group {
     display: flex;
     flex-direction: column;
-    width: 98%;
-    padding: 5px;
-}
-
-.form-group input {
-    border-radius: 3px;
-}
-
-.form-button {
-    background-color: #144a7c;
-    color: #c0d0e0;
-    border-radius: 8px;
-    border: 1px solid #00000033;
-    box-shadow: 0 0 32px #00000033;
-    font-size: 15px;
-    width: 170px;
-    height: 35px;
-    margin: 15px;
-    bottom: 15px;
+    width: 80%;
 }
 
 .modal {

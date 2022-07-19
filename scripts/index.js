@@ -5,12 +5,13 @@ window.onload = function() {
         if (fieldValidations() == true) {
             modal.classList.add("modal-show");
             modalClose.onclick = function() {
-                resetForm();
-                modal.classList.remove("modal-show");
+                modal.style.display = "none";
+                formReset();
             }
-            window.onclick = function(e) {
-                if (e.target == modal) {
-                    modal.classList.remove("modal-show");
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    formReset();
                 }
             }
         }
@@ -28,33 +29,75 @@ function getElements() {
     submit = document.getElementById("form-button");
     modal = document.getElementById("sectionModal");
     modalClose = document.getElementById("modal-button-close");
-    inputList = document.getElementById("input[type=text]");
+    inputList = document.querySelectorAll("input");
 }
 
 function fieldValidations() {
     validate = true;
-    if (nombre.value.length <= 2 || isNaN(nombre.value)) {
+    if (nombre.value === "" || nombre.value === null)
+    {
         nombre.labels[1].classList.toggle("hidden", false);
+        nombre.labels[1].innerHTML = "Debe ingresar un nombre";
         validate = false;
     }
-    if (apellido.value.length <= 2 || isNaN(apellido.value)) {
+    else if (nombre.value.length <= 2 || isNaN(nombre.value) == false) {
+        nombre.labels[1].classList.toggle("hidden", false);
+        nombre.labels[1].innerHTML = "El nombre ingresado no es válido";
+        validate = false;
+    }
+    if (apellido.value === "" || apellido.value === null)
+    {
         apellido.labels[1].classList.toggle("hidden", false);
+        apellido.labels[1].innerHTML = "Debe ingresar un apellido";
         validate = false;
     }
-    if (!email.value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)) {
+    else if (apellido.value.length <= 2 || isNaN(apellido.value) == false) {
+        apellido.labels[1].classList.toggle("hidden", false);
+        apellido.labels[1].innerHTML = "El apellido ingresado no es válido";
+        validate = false;
+    }
+    if (email.value === "" || email.value === null)
+    {
         email.labels[1].classList.toggle("hidden", false);
+        email.labels[1].innerHTML = "Debe ingresar un email";
         validate = false;
     }
-    if (emailRepetir != email) {
+    else if (!email.value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)) {
         email.labels[1].classList.toggle("hidden", false);
+        email.labels[1].innerHTML = "El email ingresado no es válido";
         validate = false;
     }
-    if (pass.value.length < 7) {
+    if (emailRepetir.value === "" || emailRepetir.value === null)
+    {
+        emailRepetir.labels[1].classList.toggle("hidden", false);
+        emailRepetir.labels[1].innerHTML = "Debe volver a ingresar su email";
+        validate = false;
+    }
+    else if (emailRepetir.value != email.value) {
+        emailRepetir.labels[1].classList.toggle("hidden", false);
+        emailRepetir.labels[1].innerHTML = "Los emails no coinciden";
+        validate = false;
+    }
+    if (pass.value === "" || pass.value === null)
+    {
         pass.labels[1].classList.toggle("hidden", false);
+        pass.labels[1].innerHTML = "Debe ingresar una contraseña";
         validate = false;
     }
-    if (passRepetir != pass) {
+    else if (pass.value.length < 7) {
+        pass.labels[1].classList.toggle("hidden", false);
+        pass.labels[1].innerHTML = "La contraseña no es valida";
+        validate = false;
+    }
+    if (passRepetir.value === "" || passRepetir.value === null)
+    {
         passRepetir.labels[1].classList.toggle("hidden", false);
+        passRepetir.labels[1].innerHTML = "Debe volver a ingresar su contraseña";
+        validate = false;
+    }
+    else if (passRepetir.value != pass.value) {
+        passRepetir.labels[1].classList.toggle("hidden", false);
+        passRepetir.labels[1].innerHTML = "Las contraseñas no coinciden";
         validate = false;
     }
     return validate;
@@ -67,7 +110,7 @@ function formReset() {
 function hideLabels() {
     for (let i = 0; i < inputList.length; i++) {
         inputList[i].onfocus = function() {
-            inputList.labels[1].classList.toggle("hidden", true);
+            inputList[i].labels[1].classList.toggle("hidden", true);
         }
     }
 }
